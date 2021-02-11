@@ -1,0 +1,17 @@
+<p>my-component works!</p>
+
+<input [(ngModel)]="id">
+<input readonly [(ngModel)]="id"> <!--Crée un  champs input en mode readonly -->
+<span>Mon id est: {{id}}</span>
+
+<br>
+<input [(ngModel)]="searchPokeName">
+<br>
+<select [(ngModel)]="selectedPokeId" >
+    <option [value]="pokemon.id" *ngFor="let pokemon of pokes | filterPokemonPipe:'name':searchPokeName" >
+      {{pokemon.name}}
+    </option>
+</select>
+<span>Mon pokemin id est: {{selectedPokeId}}</span>
+<button (click)="onGo">Go</button>
+

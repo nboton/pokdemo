@@ -13,5 +13,14 @@
     </option>
 </select>
 <span>Mon pokemin id est: {{selectedPokeId}}</span>
+<br>
+<div *ngIf="pokeDetail">
+<ul>Le pokemon selectionné est:{{pokeDetail.name}}
+  <li *ngFor="let ability of pokeDetail.abilities">
+{{ability.ability.name}}
+
+  </li>
+</ul>
+</div>
 <button (click)="go()">Go</button>
 

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PokeApiServiceService } from '../poke-api-service.service';
-import { Pokemon } from '../pokemon';
+import { PokeDetail, Pokemon } from '../pokemon';
 
 @Component({
   selector: 'app-my-component',
@@ -14,6 +14,7 @@ export class MyComponentComponent implements OnInit {
   selectedPokeId:string='';
   searchPokeName:string='';
   pokes: Pokemon[]=[];
+  pokeDetail!: PokeDetail;
 
   constructor(private pokApiService:PokeApiServiceService) {
     
@@ -28,7 +29,11 @@ export class MyComponentComponent implements OnInit {
   }
 
   go(){
-    console.log(this.selectedPokeId)
+    if(this.selectedPokeId!=''){
+      this.pokApiService.getPokemonInfo(this.selectedPokeId).subscribe((data)=>
+      this.pokeDetail=data)
+    }
+   
   }
 
 }

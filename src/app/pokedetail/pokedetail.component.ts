@@ -6,14 +6,17 @@ import { PokeDetail } from '../pokemon';
   selector: 'app-pokedetail',
   templateUrl: './pokedetail.component.html',
   styleUrls: ['./pokedetail.component.css'],
-  providers:[PokeShareInfoService]
+  
 })
 export class PokedetailComponent implements OnInit {
   @Input('detail')
   detail!: PokeDetail;
-  constructor(private pokeShareInfoService:PokeShareInfoService) { }
+  constructor(private pokeShareInfoService:PokeShareInfoService) {
+    this.pokeShareInfoService.getObservable().subscribe(e=> console.log('e:'+e))
+   }
 
   ngOnInit(): void {
+   
   }
 
 }

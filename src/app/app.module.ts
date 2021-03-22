@@ -9,6 +9,7 @@ import { FilterPokemonPipePipe } from './filter-pokemon--pipe.pipe';
 import {HttpClientModule} from '@angular/common/http';
 import { PokeApiServiceService } from './poke-api-service.service';
 import { PokedetailComponent } from './pokedetail/pokedetail.component';
+import { PokeShareInfoService } from './poke-share-info.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PokedetailComponent } from './pokedetail/pokedetail.component';
     HttpClientModule
   ], 
   providers: [
-    PokeApiServiceService
+    PokeApiServiceService,
+    PokeShareInfoService
   ],
   bootstrap: [AppComponent]
 })

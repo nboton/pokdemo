@@ -8,7 +8,7 @@ import { PokeDetail, Pokemon } from '../pokemon';
   selector: 'app-my-component',
   templateUrl: './my-component.component.html',
   styleUrls: ['./my-component.component.css'],
-  providers:[PokeApiServiceService,PokeShareInfoService]
+
 })
 export class MyComponentComponent implements OnInit {
   
@@ -35,7 +35,8 @@ export class MyComponentComponent implements OnInit {
   go(){
     if(this.selectedPokeId!=''){
       this.pokApiService.getPokemonInfo(this.selectedPokeId).subscribe((data)=>
-      this.pokeDetail=data)
+      this.pokeDetail=data);
+      this.pokeShareInfoService.setValue(this.selectedPokeId)
     }
    
   }
